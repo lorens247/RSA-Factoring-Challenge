@@ -1,30 +1,31 @@
 #!/usr/bin/python3
 """
-Factorise numbers from a file into a product of two prime numbers
+Factorize numbers in a file into a product of two prime numbers
 """
 import sys
 
 
 def factorize():
     """
-    Reads and factorize each number into two prime factors
+    A function to search file and factorize the given set of numbers
+    into two prime numbers (format n = p*q)
     """
     try:
         file = sys.argv[1]
         with open(file) as f:
-            for line_num in f:
-                line_num = int(line_num)
-                if line_num % 2 == 0:
-                    print("{}={}*{}".format(line_num, line_num // 2, 2))
+            for number in f:
+                number = int(number)
+                if number % 2 == 0:
+                    print("{}={}*{}".format(number, number // 2, 2))
                     continue
                 i = 3
-                while i < line_numb // 2:
-                    if line_num % i == 0:
-                        print("{}={}*{}".format(line_num, line_num // i, i))
+                while i < number // 2:
+                    if number % i == 0:
+                        print("{}={}*{}".format(number, number // i, i))
                         break
                     i = i + 2
-                if i == (line_num // 2) + 1:
-                    print("{}={}*{}".format(line_num, line_num, 1))
+                if i == (number // 2) + 1:
+                    print("{}={}*{}".format(number, number, 1))
     except (IndexError):
         pass
 
