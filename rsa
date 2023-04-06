@@ -1,32 +1,32 @@
 #!/usr/bin/python3
-# RSA Factoring Challenge
 """
-This script reads numbers from a file and factors them into a product of two prime numbers (format n = p*q).
+Factorise numbers from a file into a product of two prime numbers
 """
-
 import sys
+
 
 def factorize():
     """
-    A function that reads a file of numbers and factors each number into two prime factors (format n = p*q).
+    Reads and factorize each number into two prime factors
     """
     try:
         file = sys.argv[1]
         with open(file) as f:
-            for line_number in f:
-                line_number = int(line_number)
-                if line_number % 2 == 0:
-                        print("{}={}*{}".format(line_number, line_number // 2, 2))
-                        continue
+            for line_num in f:
+                line_num = int(line_num)
+                if line_num % 2 == 0:
+                    print("{}={}*{}".format(line_num, line_num // 2, 2))
+                    continue
                 i = 3
-                while i < line_number // 2:
-                    if line_number % i == 0:
-                        print("{}={}*{}".format(line_number, line_number // i, i))
+                while i < line_numb // 2:
+                    if line_num % i == 0:
+                        print("{}={}*{}".format(line_num, line_num // i, i))
                         break
                     i = i + 2
-                if i == (line_number // 2) + 1:
-                    print("{}={}*{}".format(line_number, line_number, 1))
+                if i == (line_num // 2) + 1:
+                    print("{}={}*{}".format(line_num, line_num, 1))
     except (IndexError):
         pass
+
 
 factorize()
